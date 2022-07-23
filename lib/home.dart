@@ -4,8 +4,9 @@ import 'package:po2023/widgets/normal_text.dart';
 import 'package:po2023/widgets/icon_button.dart';
 import 'package:po2023/widgets/plain_button.dart';
 import 'package:po2023/widgets/drop_down.dart';
+import 'package:po2023/widgets/post_list.dart';
 import 'package:po2023/utilities/constants.dart';
-import 'package:po2023/utilities/text_data.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -61,6 +62,19 @@ class _HomePageState extends State<HomePage> {
             child: locationContainer(
               size: size,
               themeData: themeData,
+            ),
+          ),
+
+          Container(
+            margin: Constants.topPad,
+            height: size.height * 0.51,
+            child: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              physics: ClampingScrollPhysics(),
+              child: Container(
+                height: size.height * 0.51,
+                child: PostList(),
+              ),
             ),
           ),
 

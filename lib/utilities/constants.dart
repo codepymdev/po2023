@@ -5,11 +5,15 @@ import 'dart:ui';
 class Constants{
   static String assetsImagePath = 'assets/images/';
   static const String fontName = 'Montserrat';
+  static double leastPadValue = 5;
   static double basePadValue = 10;
   static double smallPadValue = 20;
   static double? mediumPadValue = 30;
   static double? largePadValue = 40;
+  static double? smallTextLength = 70;
+  static double? mediumTextLength = 130;
   static final sidePad = EdgeInsets.symmetric(horizontal: 10);
+  static final topPad = EdgeInsets.symmetric(vertical: 10);
 
   static double getScreenPercentSize(BuildContext context, double percent) {
     return (MediaQuery.of(context).size.height * percent) / 100;

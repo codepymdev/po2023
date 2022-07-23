@@ -37,6 +37,7 @@ dependencies:
   flutter_native_splash: ^2.2.5
   marquee: ^2.2.3
   dropdown_button2: ^1.6.3
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:
@@ -54,7 +55,7 @@ dev_dependencies:
 
 flutter_native_splash:
   color: "#ffffff"
-  image: assets/images/splash-img.png
+  image: assets/images/splash-circular-logo.png
   android: true
   ios: true
 
