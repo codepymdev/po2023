@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:po2023/auth/agent/signup.dart';
 import 'package:po2023/constants/variables.dart';
 
 class AgentLoginup extends StatelessWidget {
@@ -96,23 +97,33 @@ class AgentLoginup extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
-                      alignment: Alignment.center,
-                      margin: const EdgeInsets.only(
-                        top: 17,
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text("Don't have an account yet?"),
-                          const SizedBox(
-                            width: 5,
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const AgentSignup(),
                           ),
-                          Text(
-                            "Sign up here",
-                            style: TextStyle(color: HexColor("#D40702")),
-                          ),
-                        ],
+                        );
+                      },
+                      child: Container(
+                        alignment: Alignment.center,
+                        margin: const EdgeInsets.only(
+                          top: 17,
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text("Don't have an account yet?"),
+                            const SizedBox(
+                              width: 5,
+                            ),
+                            Text(
+                              "Sign up here",
+                              style: TextStyle(color: HexColor("#D40702")),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ],
