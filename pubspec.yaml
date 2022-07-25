@@ -38,6 +38,7 @@ dependencies:
   marquee: ^2.2.3
   dropdown_button2: ^1.6.3
   intl: ^0.17.0
+  hexcolor: ^2.0.7
 
 dev_dependencies:
   flutter_test:

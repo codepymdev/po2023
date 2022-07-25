@@ -6,7 +6,7 @@ import 'package:po2023/widgets/plain_button.dart';
 import 'package:po2023/widgets/drop_down.dart';
 import 'package:po2023/widgets/post_list.dart';
 import 'package:po2023/utilities/constants.dart';
-
+import 'package:po2023/auth/agent/login.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -136,7 +136,11 @@ class _HomePageState extends State<HomePage> {
           buttonIcon: Icons.image_outlined,
           iconColor: primaryColorGreen,
           buttonText: 'photo',
-          buttonEvent: (){},
+          buttonEvent: (){
+            Navigator.push(context, new MaterialPageRoute(builder: (
+                context) =>
+            AgentLoginup()));
+          },
         ),
         SizedBox(width: Constants.smallPadValue,),
         IconUserButton(
