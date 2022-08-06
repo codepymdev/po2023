@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:po2023/auth/welcome_screen.dart';
 import 'package:po2023/widgets/marquee.dart';
 import 'package:po2023/widgets/normal_text.dart';
 import 'package:po2023/widgets/icon_button.dart';
@@ -34,7 +35,7 @@ class _HomePageState extends State<HomePage> {
           IconButton(
             onPressed: () {},
             icon: Image.asset(
-                Constants.assetsImagePath + 'party-logo.png',
+              Constants.assetsImagePath + 'party-logo.png',
               height: Constants.getScreenPercentSize(context, 6.5),
             ),
           ),
@@ -48,15 +49,19 @@ class _HomePageState extends State<HomePage> {
             size: size,
             themeData: themeData,
           ),
-          SizedBox(height: Constants.smallPadValue,),
-         Padding(
+          SizedBox(
+            height: Constants.smallPadValue,
+          ),
+          Padding(
             padding: Constants.sidePad,
             child: postContainer(
               size: size,
               themeData: themeData,
             ),
           ),
-          SizedBox(height: Constants.smallPadValue,),
+          SizedBox(
+            height: Constants.smallPadValue,
+          ),
           Padding(
             padding: Constants.sidePad,
             child: locationContainer(
@@ -64,7 +69,6 @@ class _HomePageState extends State<HomePage> {
               themeData: themeData,
             ),
           ),
-
           Container(
             margin: Constants.topPad,
             height: size.height * 0.51,
@@ -77,13 +81,13 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-
         ],
       ),
     );
   }
 
-  Container locationContainer({required Size size, required ThemeData themeData}){
+  Container locationContainer(
+      {required Size size, required ThemeData themeData}) {
     return Container(
       height: size.height * 0.06,
       child: Row(
@@ -97,37 +101,39 @@ class _HomePageState extends State<HomePage> {
               borderRadius: BorderRadius.circular(5),
               color: primaryColorGreen,
             ),
-            child: Text('View Result', style: themeData.textTheme.button!,),
+            child: Text(
+              'View Result',
+              style: themeData.textTheme.button!,
+            ),
           ),
-
           const Spacer(),
-
           DropDownWidget(themeData: themeData),
-
         ],
       ),
     );
   }
 
-  Container marqueeContainer({required Size size, required ThemeData themeData}){
+  Container marqueeContainer(
+      {required Size size, required ThemeData themeData}) {
     return Container(
       height: size.height * 0.08,
       color: colorGrey,
       child: Column(
         children: [
-          SizedBox(height: Constants.smallPadValue,),
+          SizedBox(
+            height: Constants.smallPadValue,
+          ),
           Expanded(
             child: MarqueeWidget(
                 themeData: themeData,
-                news: 'Some sample text that takes some space.'
-            ),
+                news: 'Some sample text that takes some space.'),
           ),
         ],
       ),
     );
   }
 
-  Row postButtonRow({required ThemeData themeData}){
+  Row postButtonRow({required ThemeData themeData}) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -136,55 +142,58 @@ class _HomePageState extends State<HomePage> {
           buttonIcon: Icons.image_outlined,
           iconColor: primaryColorGreen,
           buttonText: 'photo',
-          buttonEvent: (){
-            Navigator.push(context, new MaterialPageRoute(builder: (
-                context) =>
-            AgentLoginup()));
+          buttonEvent: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const WelcomeScreenAuth()));
           },
         ),
-        SizedBox(width: Constants.smallPadValue,),
+        SizedBox(
+          width: Constants.smallPadValue,
+        ),
         IconUserButton(
           themeData: themeData,
           buttonIcon: Icons.video_camera_back_outlined,
           iconColor: colorRed,
           buttonText: 'video',
-          buttonEvent: (){},
+          buttonEvent: () {},
         ),
         const Spacer(),
         PlainButton(
           textStyle: themeData.textTheme.bodyText2!,
           borderRadius: BorderRadius.circular(5),
           text: 'Post',
-          buttonEvent: (){},
+          buttonEvent: () {},
         ),
       ],
     );
   }
 
-  Container postContainer({required Size size, required ThemeData themeData}){
+  Container postContainer({required Size size, required ThemeData themeData}) {
     return Container(
         height: size.height * 0.12,
         color: colorGrey,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: Constants.basePadValue,),
+            SizedBox(
+              height: Constants.basePadValue,
+            ),
             Padding(
               padding: Constants.sidePad,
               child: NormalText(
                   themeData: themeData,
-                  myText: 'What is happening in your polling unit?'
-              ),
+                  myText: 'What is happening in your polling unit?'),
             ),
-            SizedBox(height: Constants.basePadValue,),
+            SizedBox(
+              height: Constants.basePadValue,
+            ),
             Padding(
               padding: Constants.sidePad,
               child: postButtonRow(themeData: themeData),
             ),
           ],
-        )
-    );
+        ));
   }
-
-
 }

@@ -13,20 +13,17 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-
     double? screenWidth = window.physicalSize.width;
 
     return MaterialApp(
       theme: Theme.of(context).copyWith(
         colorScheme: Theme.of(context).colorScheme.copyWith(
-          primary: primaryColorGreen,
-        ),
+              primary: primaryColorGreen,
+            ),
         textTheme: screenWidth < 500 ? TEXT_THEME_SMALL : TEXT_THEME_DEFAULT,
       ),
       title: 'PO2023 Smart App',
-      home: HomePage(),
+      home: const HomePage(),
     );
   }
-
-
 }

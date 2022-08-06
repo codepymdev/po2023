@@ -56,7 +56,7 @@ dev_dependencies:
 
 flutter_native_splash:
   color: "#ffffff"
-  image: assets/images/splash-circular-logo.png
+  image: assets/images/circular-logo.png
   android: true
   ios: true
 
@@ -79,14 +79,11 @@ flutter:
   # https://flutter.dev/assets-and-images/#from-packages
 
   fonts:
-     - family: Montserrat
+     - family:  
        fonts:
-         - asset: assets/fonts/Montserrat-Bold.ttf
-           weight: 600
-
-         - asset: assets/fonts/Montserrat-Regular.ttf
-           weight: 300
-
+         - asset: assets/fonts/Roboto/Roboto-Bold.ttf
+         - asset: assets/fonts/Roboto-Regular.ttf
+  
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf
