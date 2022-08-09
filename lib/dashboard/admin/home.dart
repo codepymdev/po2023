@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:po2023/dashboard/admin/admin_view_result.dart';
 
 class AdminDashboard extends StatelessWidget {
   const AdminDashboard({Key? key}) : super(key: key);
@@ -183,18 +184,29 @@ class AdminDashboard extends StatelessWidget {
                         ),
                         Expanded(
                             flex: 1,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                  color: HexColor("#018225"),
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        const AdminViewResult(),
+                                  ),
+                                );
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: HexColor("#018225"),
+                                  ),
+                                  borderRadius: BorderRadius.circular(5),
                                 ),
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                              child: Text(
-                                "view",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  color: HexColor("#018225"),
+                                child: Text(
+                                  "view",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color: HexColor("#018225"),
+                                  ),
                                 ),
                               ),
                             )),
