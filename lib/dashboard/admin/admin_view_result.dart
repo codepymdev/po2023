@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:po2023/dashboard/admin/admin_result_sheet.dart';
+import 'package:po2023/dashboard/admin/agents.dart';
 
 class AdminViewResult extends StatelessWidget {
   const AdminViewResult({Key? key}) : super(key: key);
@@ -37,22 +38,32 @@ class AdminViewResult extends StatelessWidget {
           ),
         ),
         actions: [
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.green[50],
-              borderRadius: const BorderRadius.only(
-                bottomLeft: Radius.circular(50),
-                topLeft: Radius.circular(5),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const Agents(),
+                ),
+              );
+            },
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.green[50],
+                borderRadius: const BorderRadius.only(
+                  bottomLeft: Radius.circular(50),
+                  topLeft: Radius.circular(5),
+                ),
               ),
-            ),
-            padding: const EdgeInsets.only(
-              right: 30,
-              left: 30,
-            ),
-            child: Image.asset(
-              "assets/images/menu.png",
-              width: 31,
-              height: 31,
+              padding: const EdgeInsets.only(
+                right: 30,
+                left: 30,
+              ),
+              child: Image.asset(
+                "assets/images/menu.png",
+                width: 31,
+                height: 31,
+              ),
             ),
           ),
         ],

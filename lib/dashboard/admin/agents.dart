@@ -1,47 +1,58 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:po2023/dashboard/admin/admin_view_result.dart';
-import 'package:po2023/dashboard/admin/agents.dart';
+import 'package:po2023/dashboard/admin/agent_view.dart';
 
-class AdminDashboard extends StatelessWidget {
-  const AdminDashboard({Key? key}) : super(key: key);
+class Agents extends StatelessWidget {
+  const Agents({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: HexColor("#ffffff"),
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        leading: Container(
-          margin: const EdgeInsets.only(
-            left: 17,
-            top: 17,
-          ),
-          child: Image.asset(
-            "assets/images/labour_party_vote.png",
-            width: 54,
-            height: 35,
+        toolbarHeight: 80.0, // double
+        automaticallyImplyLeading: false, // hides back button
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Container(
+            decoration: BoxDecoration(
+              color: HexColor("#D40702"),
+              borderRadius: const BorderRadius.only(
+                bottomRight: Radius.circular(50),
+                topRight: Radius.circular(5),
+              ),
+            ),
+            padding: const EdgeInsets.only(
+              right: 30,
+            ),
+            child: const Icon(
+              Icons.arrow_back,
+              color: Colors.white,
+              size: 35,
+            ),
           ),
         ),
         actions: [
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const Agents(),
-                ),
-              );
-            },
-            child: Container(
-              margin: const EdgeInsets.only(
-                right: 17,
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.green[50],
+              borderRadius: const BorderRadius.only(
+                bottomLeft: Radius.circular(50),
+                topLeft: Radius.circular(5),
               ),
-              child: Image.asset(
-                "assets/images/menu.png",
-                width: 31,
-                height: 31,
-              ),
+            ),
+            padding: const EdgeInsets.only(
+              right: 30,
+              left: 30,
+            ),
+            child: Image.asset(
+              "assets/images/menu.png",
+              width: 31,
+              height: 31,
             ),
           ),
         ],
@@ -95,7 +106,7 @@ class AdminDashboard extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: const [
-                      Text("States"),
+                      Text("Party agent"),
                       Icon(
                         Icons.keyboard_arrow_down_rounded,
                         color: Colors.white,
@@ -127,7 +138,7 @@ class AdminDashboard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: const [
                       Text(
-                        "Sort by: Highest",
+                        "Sort by: Agent Id",
                         style: TextStyle(
                           color: Colors.green,
                         ),
@@ -175,7 +186,7 @@ class AdminDashboard extends StatelessWidget {
                         Expanded(
                           flex: 3,
                           child: Text(
-                            "Abia State",
+                            "Johnson Ahmed",
                             style: TextStyle(
                               fontSize: 14,
                               color: HexColor("#018225"),
@@ -186,7 +197,7 @@ class AdminDashboard extends StatelessWidget {
                         Expanded(
                           flex: 3,
                           child: Text(
-                            "700,000",
+                            "@johnsonahmed",
                             style: TextStyle(
                               color: HexColor("#018225"),
                               fontWeight: FontWeight.w400,
@@ -194,33 +205,33 @@ class AdminDashboard extends StatelessWidget {
                           ),
                         ),
                         Expanded(
-                            flex: 1,
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        const AdminViewResult(),
-                                  ),
-                                );
-                              },
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                    color: HexColor("#018225"),
-                                  ),
-                                  borderRadius: BorderRadius.circular(5),
+                          flex: 1,
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const AgentView(),
                                 ),
-                                child: Text(
-                                  "view",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    color: HexColor("#018225"),
-                                  ),
+                              );
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: HexColor("#018225"),
+                                ),
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                              child: Text(
+                                "view",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: HexColor("#018225"),
                                 ),
                               ),
-                            )),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   );
