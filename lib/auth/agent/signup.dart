@@ -140,7 +140,12 @@ class _AgentSignupState extends State<AgentSignup> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const Text("Already have an account?"),
+                            const Text(
+                              "Already have an account?",
+                              style: TextStyle(
+                                color: Color.fromARGB(255, 43, 42, 42),
+                              ),
+                            ),
                             const SizedBox(
                               width: 5,
                             ),

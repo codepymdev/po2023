@@ -114,7 +114,12 @@ class AgentLoginup extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const Text("Don't have an account yet?"),
+                            const Text(
+                              "Don't have an account yet?",
+                              style: TextStyle(
+                                color: Color.fromARGB(255, 43, 42, 42),
+                              ),
+                            ),
                             const SizedBox(
                               width: 5,
                             ),

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
 
-
-class Constants{
+class Constants {
   static String assetsImagePath = 'assets/images/';
-  static const String fontName = 'Montserrat';
+  static const String fontName = 'Roboto';
   static double leastPadValue = 5;
   static double basePadValue = 10;
   static double smallPadValue = 20;
@@ -25,8 +24,8 @@ class Constants{
 
   static const MaterialColor appBackgroundMaterialColor = MaterialColor(
     0xFFFFFFFF,
-     <int, Color>{
-      50: Color(0xff01B834),//10%0%
+    <int, Color>{
+      50: Color(0xff01B834), //10%0%
     },
   );
 }
@@ -58,7 +57,6 @@ final Color? appItemColorLightGrey = Colors.grey[200];
 
 final EdgeInsets edgePaddingLeft = const EdgeInsets.only(left: 20.0);
 
-
 final kHintTextStyle = TextStyle(
   color: colourBlack,
   fontFamily: Constants.fontName,
@@ -74,15 +72,13 @@ final kTextStyleBold = TextStyle(
     color: primaryColorGreen,
     fontWeight: FontWeight.bold,
     fontFamily: Constants.fontName,
-    fontSize: 22
-);
+    fontSize: 22);
 
 final kTextStyleNorm = TextStyle(
   color: colorWhite,
   fontFamily: Constants.fontName,
   fontSize: 22,
 );
-
 
 final kBoxDecorationStyle = BoxDecoration(
   color: primaryColorGreen,
@@ -97,62 +93,142 @@ final kBoxDecorationStyle = BoxDecoration(
   ],
 );
 
-
-
 const TextTheme TEXT_THEME_DEFAULT = TextTheme(
   headline1: TextStyle(
-      color: primaryColorGreen, fontFamily: Constants.fontName, fontWeight: FontWeight.w700, fontSize: 26),
+      color: primaryColorGreen,
+      fontFamily: Constants.fontName,
+      fontWeight: FontWeight.w700,
+      fontSize: 26),
   headline2: TextStyle(
-      color: primaryColorGreen, fontFamily: Constants.fontName, fontWeight: FontWeight.w700, fontSize: 22),
+      color: primaryColorGreen,
+      fontFamily: Constants.fontName,
+      fontWeight: FontWeight.w700,
+      fontSize: 22),
   headline3: TextStyle(
-      color: primaryColorGreen, fontFamily: Constants.fontName, fontWeight: FontWeight.w700, fontSize: 20),
+      color: primaryColorGreen,
+      fontFamily: Constants.fontName,
+      fontWeight: FontWeight.w700,
+      fontSize: 20),
   headline4: TextStyle(
-      color: primaryColorGreen, fontFamily: Constants.fontName, fontWeight: FontWeight.w700, fontSize: 16),
+      color: primaryColorGreen,
+      fontFamily: Constants.fontName,
+      fontWeight: FontWeight.w700,
+      fontSize: 16),
   headline5: TextStyle(
-      color: primaryColorGreen, fontFamily: Constants.fontName, fontWeight: FontWeight.w700, fontSize: 14),
+      color: primaryColorGreen,
+      fontFamily: Constants.fontName,
+      fontWeight: FontWeight.w700,
+      fontSize: 14),
   headline6: TextStyle(
-      color: primaryColorGreen, fontFamily: Constants.fontName, fontWeight: FontWeight.w700, fontSize: 12),
+      color: primaryColorGreen,
+      fontFamily: Constants.fontName,
+      fontWeight: FontWeight.w700,
+      fontSize: 12),
   bodyText1: TextStyle(
-      color: primaryColorGreen, fontFamily: Constants.fontName, fontSize: 14, fontWeight: FontWeight.w500,height: 1.5),
+      color: primaryColorGreen,
+      fontFamily: Constants.fontName,
+      fontSize: 14,
+      fontWeight: FontWeight.w500,
+      height: 1.5),
   bodyText2: TextStyle(
-      color:  colorWhite, fontFamily: Constants.fontName, fontSize: 14, fontWeight: FontWeight.w500,height: 1.5),
-  subtitle1:
-  TextStyle(color: primaryColorGreen, fontFamily: Constants.fontName, fontSize: 12, fontWeight: FontWeight.w400),
+      color: colorWhite,
+      fontFamily: Constants.fontName,
+      fontSize: 14,
+      fontWeight: FontWeight.w500,
+      height: 1.5),
+  subtitle1: TextStyle(
+      color: primaryColorGreen,
+      fontFamily: Constants.fontName,
+      fontSize: 12,
+      fontWeight: FontWeight.w400),
   subtitle2: TextStyle(
-      color: colorWhite, fontFamily: Constants.fontName, fontSize: 12, fontWeight: FontWeight.w400),
+      color: colorWhite,
+      fontFamily: Constants.fontName,
+      fontSize: 12,
+      fontWeight: FontWeight.w400),
   caption: TextStyle(
-      color: primaryColorGreen, fontFamily: Constants.fontName, fontWeight: FontWeight.w700, fontSize: 16),
+      color: primaryColorGreen,
+      fontFamily: Constants.fontName,
+      fontWeight: FontWeight.w700,
+      fontSize: 16),
   labelMedium: TextStyle(
-      color: primaryColorGreen, fontFamily: Constants.fontName, fontWeight: FontWeight.w700, fontSize: 22),
+      color: primaryColorGreen,
+      fontFamily: Constants.fontName,
+      fontWeight: FontWeight.w700,
+      fontSize: 22),
   button: TextStyle(
-      color: colorWhite, fontFamily: Constants.fontName, fontWeight: FontWeight.w700, fontSize: 18),
+      color: colorWhite,
+      fontFamily: Constants.fontName,
+      fontWeight: FontWeight.w700,
+      fontSize: 18),
 );
 
 const TextTheme TEXT_THEME_SMALL = TextTheme(
   headline1: TextStyle(
-      color: primaryColorGreen, fontFamily: Constants.fontName, fontWeight: FontWeight.w700, fontSize: 22),
+      color: primaryColorGreen,
+      fontFamily: Constants.fontName,
+      fontWeight: FontWeight.w700,
+      fontSize: 22),
   headline2: TextStyle(
-      color: primaryColorGreen, fontFamily: Constants.fontName, fontWeight: FontWeight.w700, fontSize: 20),
+      color: primaryColorGreen,
+      fontFamily: Constants.fontName,
+      fontWeight: FontWeight.w700,
+      fontSize: 20),
   headline3: TextStyle(
-      color: primaryColorGreen, fontFamily: Constants.fontName, fontWeight: FontWeight.w700, fontSize: 18),
+      color: primaryColorGreen,
+      fontFamily: Constants.fontName,
+      fontWeight: FontWeight.w700,
+      fontSize: 18),
   headline4: TextStyle(
-      color: primaryColorGreen, fontFamily: Constants.fontName, fontWeight: FontWeight.w700, fontSize: 14),
+      color: primaryColorGreen,
+      fontFamily: Constants.fontName,
+      fontWeight: FontWeight.w700,
+      fontSize: 14),
   headline5: TextStyle(
-      color: primaryColorGreen, fontFamily: Constants.fontName, fontWeight: FontWeight.w700, fontSize: 12),
+      color: primaryColorGreen,
+      fontFamily: Constants.fontName,
+      fontWeight: FontWeight.w700,
+      fontSize: 12),
   headline6: TextStyle(
-      color: primaryColorGreen, fontFamily: Constants.fontName, fontWeight: FontWeight.w700, fontSize: 10),
+      color: primaryColorGreen,
+      fontFamily: Constants.fontName,
+      fontWeight: FontWeight.w700,
+      fontSize: 10),
   bodyText1: TextStyle(
-      color: primaryColorGreen, fontFamily: Constants.fontName, fontSize: 12, fontWeight: FontWeight.w500,height: 1.5),
+      color: primaryColorGreen,
+      fontFamily: Constants.fontName,
+      fontSize: 12,
+      fontWeight: FontWeight.w500,
+      height: 1.5),
   bodyText2: TextStyle(
-      color: colorWhite, fontFamily: Constants.fontName, fontSize: 12, fontWeight: FontWeight.w500,height: 1.5),
-  subtitle1:
-  TextStyle(color: primaryColorGreen, fontFamily: Constants.fontName, fontSize: 10, fontWeight: FontWeight.w400),
+      color: colorWhite,
+      fontFamily: Constants.fontName,
+      fontSize: 12,
+      fontWeight: FontWeight.w500,
+      height: 1.5),
+  subtitle1: TextStyle(
+      color: primaryColorGreen,
+      fontFamily: Constants.fontName,
+      fontSize: 10,
+      fontWeight: FontWeight.w400),
   subtitle2: TextStyle(
-      color: colorWhite, fontFamily: Constants.fontName, fontSize: 10, fontWeight: FontWeight.w400),
+      color: colorWhite,
+      fontFamily: Constants.fontName,
+      fontSize: 10,
+      fontWeight: FontWeight.w400),
   caption: TextStyle(
-      color: primaryColorGreen, fontFamily: Constants.fontName, fontWeight: FontWeight.w700, fontSize: 14),
+      color: primaryColorGreen,
+      fontFamily: Constants.fontName,
+      fontWeight: FontWeight.w700,
+      fontSize: 14),
   labelMedium: TextStyle(
-      color: primaryColorGreen, fontFamily: Constants.fontName, fontWeight: FontWeight.w700, fontSize: 20),
+      color: primaryColorGreen,
+      fontFamily: Constants.fontName,
+      fontWeight: FontWeight.w700,
+      fontSize: 20),
   button: TextStyle(
-      color: colorWhite, fontFamily: Constants.fontName, fontWeight: FontWeight.w700, fontSize: 18),
+      color: colorWhite,
+      fontFamily: Constants.fontName,
+      fontWeight: FontWeight.w700,
+      fontSize: 18),
 );
