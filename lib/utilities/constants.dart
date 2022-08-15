@@ -93,6 +93,17 @@ final kBoxDecorationStyle = BoxDecoration(
   ],
 );
 
+const TextStyle cancelTextStyle = TextStyle(
+    fontSize: 14.0,
+    color: colorRed,
+    fontWeight: FontWeight.w600
+);
+const TextStyle okTextStyle = TextStyle(
+    fontSize: 14.0,
+    color: primaryColorGreen,
+    fontWeight: FontWeight.w600
+);
+
 const TextTheme TEXT_THEME_DEFAULT = TextTheme(
   headline1: TextStyle(
       color: primaryColorGreen,

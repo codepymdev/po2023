@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:po2023/utilities/constants.dart';
 import 'package:po2023/widgets/normal_text.dart';
 import 'package:po2023/widgets/bold_text.dart';
@@ -152,6 +155,7 @@ class _PostCardState extends State<PostCard> {
                         return Container(
                           height: 200,
                           color: colorGrey,
+                          child: imgWidget(context),
                         );
                       }else{
                         return SizedBox(height: 0,);
@@ -166,4 +170,48 @@ class _PostCardState extends State<PostCard> {
         ),
     );
   }
+
+  final List<XFile?> images = List<XFile?>.filled(3, null);
+
+  Future _getImage(int index) async {
+    final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+    setState(() {
+      //_image = image;
+      images[index] = image!;
+
+      //print('first element: ${_imageList!.isEmpty}');
+      //print('second element: ${_imageList!.}');
+    });
+  }
+
+  Widget imgWidget(BuildContext context) {
+    return ListView.separated(
+      separatorBuilder: (context, index) => SizedBox(
+        width: 5.0,
+      ),
+      scrollDirection: Axis.horizontal,
+      itemCount: images.length,
+      itemBuilder: (BuildContext context, int index) {
+        XFile? file = images[index];
+        return GestureDetector(
+          onTap: (){},
+          // onTap: file == null ? () => _getImage(index) : null,
+          child: Container(
+            height: 40.0,
+            width: 180.0,
+            decoration: BoxDecoration(
+              border: Border.all(color: colorWhite),
+            ),
+            child: file == null
+                ? Center(child: Text('Image ${index + 1}'))
+                : Image.file(
+              File(images[index]!.path),
+              fit: BoxFit.cover,
+            ),
+          ),
+        );
+      },
+    );
+  }
+
 }
