@@ -13,6 +13,7 @@ class Constants {
   static double? mediumTextLength = 130;
   static final sidePad = EdgeInsets.symmetric(horizontal: 10);
   static final topPad = EdgeInsets.symmetric(vertical: 10);
+  static final sideTopPad = EdgeInsets.symmetric(horizontal:70, vertical: 30);
 
   static double getScreenPercentSize(BuildContext context, double percent) {
     return (MediaQuery.of(context).size.height * percent) / 100;
@@ -46,6 +47,7 @@ extension ColorExtension on String {
 
 Color primaryColor = "#01B834".toColor();
 const primaryColorGreen = Color.fromRGBO(1, 184, 52, 1.0);
+const colorGreenShadow5 = Color.fromRGBO(1, 184, 52, .05);
 const colorRed = Color.fromRGBO(212, 7, 2, 1.0);
 const primaryColorLightGreen = Color.fromRGBO(1, 184, 52, 0.05);
 const colourBlack = Color.fromRGBO(48, 47, 48, 1.0);
@@ -102,6 +104,12 @@ const TextStyle okTextStyle = TextStyle(
     fontSize: 14.0,
     color: primaryColorGreen,
     fontWeight: FontWeight.w600
+);
+
+const TextStyle boldStyle = TextStyle(
+    fontSize: 16.0,
+    color: colourBlack,
+    fontWeight: FontWeight.w700
 );
 
 const TextTheme TEXT_THEME_DEFAULT = TextTheme(

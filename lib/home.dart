@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:po2023/auth/welcome_screen.dart';
+import 'package:po2023/dashboard/dashboard_sign_in.dart';
+import 'package:po2023/widgets/bold_text.dart';
 import 'package:po2023/widgets/marquee.dart';
 import 'package:po2023/widgets/normal_text.dart';
 import 'package:po2023/widgets/icon_button.dart';
@@ -9,6 +11,9 @@ import 'package:po2023/widgets/drop_down.dart';
 import 'package:po2023/widgets/post_list.dart';
 import 'package:po2023/utilities/constants.dart';
 import 'package:po2023/dashboard/admin/agents.dart';
+import 'package:po2023/eresult/view_result.dart';
+
+import 'dashboard/dashboard_sign_out.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -52,7 +57,7 @@ class _HomePageState extends State<HomePage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const Agents(),
+                  builder: (context) => DashboardSignOut(),
                 ),
               );
             },
@@ -115,6 +120,43 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
         ),
+      ),
+      bottomSheet: Row(
+        children: [
+          Spacer(),
+          Container(
+            width: MediaQuery.of(context).size.width * 0.30,
+            height: MediaQuery.of(context).size.width * 0.15,
+            decoration: BoxDecoration(
+              color: primaryColorGreen,
+              borderRadius: BorderRadius.only(
+                topRight: Radius.circular(200.0),
+                topLeft: Radius.circular(200.0),
+
+              ),
+            ),
+            child: InkWell(
+              child: Container(
+                  height: MediaQuery.of(context).size.width * 0.30,
+                  width: MediaQuery.of(context).size.width * 0.15,
+
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('Refresh', style: boldStyle,),
+                        Icon(
+                          Icons.refresh,
+                          color: colourBlack,
+                        ),
+                      ],
+                  )
+              ),
+              onTap: (){
+
+              },
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -190,7 +232,12 @@ class _HomePageState extends State<HomePage> {
           buttonIcon: Icons.video_camera_back_outlined,
           iconColor: colorRed,
           buttonText: 'video',
-          buttonEvent: () {},
+          buttonEvent: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => ViewResultScreen()));
+          },
         ),
         const Spacer(),
         PlainButton(

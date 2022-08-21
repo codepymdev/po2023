@@ -171,7 +171,7 @@ class _PostCardState extends State<PostCard> {
     );
   }
 
-  final List<XFile?> images = List<XFile?>.filled(3, null);
+  final List<XFile?> images = List<XFile?>.filled(2, null);
 
   Future _getImage(int index) async {
     final image = await ImagePicker().pickImage(source: ImageSource.gallery);
