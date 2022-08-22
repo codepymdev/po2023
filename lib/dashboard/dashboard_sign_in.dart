@@ -25,79 +25,67 @@ class _DashboardSignInScreenState extends State<DashboardSignIn> {
     ThemeData themeData = Theme.of(context);
 
     return Scaffold(
-      appBar: AppBar(
-        // title: const Text('Home Dashboard'),
-        elevation: 0,
-        backgroundColor: Colors.white,
-        leading: Container(
-          margin: const EdgeInsets.only(
-            left: 17,
-            top: 17,
-          ),
-          child: Image.asset(
-            Constants.assetsImagePath + "labour_party_vote.png",
-            width: 54,
-            height: 35,
-          ),
-        ),
-      ),
       body: SingleChildScrollView(
-        child: Column(
+        child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Row(
+            Container(
+              margin: const EdgeInsets.only(
+                left: 17,
+                top: 17,
+              ),
+              child: Image.asset(
+                Constants.assetsImagePath + "labour_party_vote.png",
+                width: 44,
+                height: 25,
+              ),
+            ),
+            Spacer(),
+            GestureDetector(
+              child: InkWell(
 
-              children: [
-                Spacer(),
-                GestureDetector(
-                  child: InkWell(
+                child: Container(
+                    height: MediaQuery.of(context).size.height * 0.40,
+                    width: MediaQuery.of(context).size.width * 0.75,
+                    decoration: BoxDecoration(
+                      color: colorGreenShadow5,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(80.0),
+                        bottomLeft: Radius.circular(600.0),
 
-                    child: Container(
-                        height: MediaQuery.of(context).size.height * 0.40,
-                        width: MediaQuery.of(context).size.width * 0.75,
-                        decoration: BoxDecoration(
-                          color: colorGreenShadow5,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(80.0),
-                            bottomLeft: Radius.circular(600.0),
-
-                          ),
-                        ),
-
-                        child:Padding(
-                          padding: Constants.sideTopPad,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Icon(
-                                Icons.cancel_outlined,
-                                color: primaryColorGreen,
-                                size:29.0,
-                              ),
-                              SizedBox(height: Constants.smallPadValue,),
-                              NormalText(myText: 'View Result', themeData: themeData),
-                              SizedBox(height: Constants.smallPadValue,),
-                              BoldText(myText: 'Sign In', themeData: themeData,),
-                              SizedBox(height: Constants.smallPadValue,),
-                              BoldText(myText: 'Sign Up', themeData: themeData,),
-                            ],
-                          ),
-                        )
+                      ),
                     ),
-                    onTap: (){
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const HomePage(),
-                        ),
-                      );
-                    },
-                  ),
+
+                    child:Padding(
+                      padding: Constants.sideTopPad,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Icon(
+                            Icons.cancel_outlined,
+                            color: primaryColorGreen,
+                            size:29.0,
+                          ),
+                          SizedBox(height: Constants.smallPadValue,),
+                          NormalText(myText: 'View Result', themeData: themeData),
+                          SizedBox(height: Constants.smallPadValue,),
+                          BoldText(myText: 'Sign In', themeData: themeData,),
+                          SizedBox(height: Constants.smallPadValue,),
+                          BoldText(myText: 'Sign Up', themeData: themeData,),
+                        ],
+                      ),
+                    )
                 ),
-
-
-              ],
+                onTap: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const HomePage(),
+                    ),
+                  );
+                },
+              ),
             ),
           ],
         ),
