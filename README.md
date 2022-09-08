@@ -1,32 +1,22 @@
 # PO2023 Smart App 
 
-First thing first, you can `clone` the repo `https://github.com/realArafatBen/po2023.git`  
+## Features 
 
-After you have download the repo, open the directory `po2023` 
+- [ ] Auth (Admin/Agents)
+- [ ] Main Dashboard 
+- [ ] Agent Dashboard 
+- [ ] Admin Dashboard 
+- [ ] Post 
+- [ ] Chart 
+- [ ] Notifications
+- [ ] Results Upload 
+- [ ] Manage Results 
+- [ ] Manage Agents / Users
 
-On your terminal `flutter clean` 
-Then `flutter pub get` 
+## API Documentation 
 
-## File Struture
-```
-lib
-    auth // Here is the authenication folder 
-        admin // Here is the admin auth folder 
-        agent // Here is the agent auth folder 
+API Documentation on Postman
+``` https://documenter.getpostman.com/view/20913805/VUqpsHZv ```
 
-    dashboard  // Here is the dashboard folder
-        admin // admin dashboard folder 
-        agent // agent dashboard folder 
-
-    widgets //Here is the widgets folder (If you want to separate your widgets)
-
-    home.dart // There we can have the home dashboard
-
-    splash_screen.dart // Splash screen
-    main.dart 
-```
-
-## Lastly 
-You can also separate your widgets in the widgets folder. All these can change when we start working with state management. 
-
-Thanks 
+## API Endpoint 
+`` https://po2023.herokuapp.com/ ``

@@ -1,29 +1,52 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:po2023/home.dart';
-import 'package:po2023/utilities/constants.dart';
+import 'package:po2023/app/core/utils/app_initializer.dart';
+import 'package:po2023/app/ui/pages/app.dart';
+import 'package:po2023/app/ui/pages/errors/connectivity_error.dart';
+import 'package:po2023/app/ui/pages/errors/error.dart';
+import 'package:po2023/app/ui/pages/splash_screen.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+Future<void> main() async {
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  runApp(
+    FutureBuilder(
+      future: AppInitializer().appInitializer(),
+      builder: (BuildContext context, AsyncSnapshot snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const AppSplashScreen();
+        } else if (snapshot.connectionState == ConnectionState.done) {
+          if (snapshot.hasData) {
+            Map<String, dynamic> appInitData = snapshot.data;
 
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    double? screenWidth = window.physicalSize.width;
-
-    return MaterialApp(
-      theme: Theme.of(context).copyWith(
-        colorScheme: Theme.of(context).colorScheme.copyWith(
-              primary: primaryColorGreen,
-            ),
-        textTheme: screenWidth < 500 ? TEXT_THEME_SMALL : TEXT_THEME_DEFAULT,
-      ),
-      title: 'PO2023 Smart App',
-      home: const HomePage(),
-    );
-  }
+            ///
+            /// check if the connectivity status is === false
+            ///
+            bool connectivityStatus = appInitData['connectivity_status'];
+            if (connectivityStatus) {
+              return const App();
+            } else {
+              ///
+              /// show the connectivity error page
+              ///
+              return const ConnectivityError();
+            }
+          } else {
+            ///
+            /// show the connectivity error page
+            ///
+            return const ErrorPage();
+          }
+        } else if (snapshot.hasError) {
+          //return error state
+          return const ErrorPage();
+        } else {
+          //return error state
+          return const ErrorPage();
+        }
+      },
+    ),
+  );
+  FlutterNativeSplash.remove();
 }
