@@ -10,6 +10,9 @@ const double smallTextLength = 70;
 const double mediumTextLength = 130;
 const sidePad = EdgeInsets.symmetric(horizontal: 10);
 const topPad = EdgeInsets.symmetric(vertical: 10);
+const colorGreenShadow5 = Color.fromRGBO(1, 184, 52, .05);
+
+const sideTopPad = EdgeInsets.symmetric(horizontal: 70, vertical: 30);
 
 const primaryColor = Color.fromRGBO(1, 184, 52, 1.0);
 const colorRed = Color.fromRGBO(212, 7, 2, 1.0);

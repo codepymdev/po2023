@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:po2023/app/core/constants/app_constants.dart';
 import 'package:po2023/app/core/constants/asset_path.dart';
@@ -53,12 +54,7 @@ class WelcomeScreenAuth extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const AgentSignup(),
-                    ),
-                  );
+                  Get.toNamed("/auth/agent/signUp");
                 },
                 child: Container(
                   alignment: Alignment.center,
@@ -79,7 +75,9 @@ class WelcomeScreenAuth extends StatelessWidget {
                       ),
                       Text(
                         "Sign up here",
-                        style: TextStyle(color: HexColor("#D40702")),
+                        style: TextStyle(
+                          color: HexColor("#D40702"),
+                        ),
                       ),
                     ],
                   ),

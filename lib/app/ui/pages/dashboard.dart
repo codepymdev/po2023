@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:get/get.dart';
 import 'package:po2023/app/core/constants/app_constants.dart';
 import 'package:po2023/app/core/constants/asset_path.dart';
 import 'package:po2023/app/ui/pages/auth/welcome_screen.dart';
 import 'package:po2023/app/ui/pages/dashboard/admin/agents.dart';
+import 'package:po2023/app/ui/pages/dashboard/menu.dart';
 import 'package:po2023/app/ui/widgets/custom/drop_down.dart';
 import 'package:po2023/app/ui/widgets/custom/icon_button.dart';
 import 'package:po2023/app/ui/widgets/custom/marquee.dart';
@@ -61,10 +63,15 @@ class _DashboardState extends State<Dashboard> {
               margin: const EdgeInsets.only(
                 right: 17,
               ),
-              child: Image.asset(
-                menuicon,
-                width: 31,
-                height: 31,
+              child: GestureDetector(
+                onTap: () => Get.to(
+                  () => const DashboardSignIn(),
+                ),
+                child: Image.asset(
+                  menuPng,
+                  width: 31,
+                  height: 31,
+                ),
               ),
             ),
           ),

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:po2023/app/core/constants/app_constants.dart';
-import 'package:po2023/app/ui/pages/auth/admin/login.dart';
-import 'package:po2023/app/ui/pages/auth/agent/login.dart';
 
 class Dialogue extends StatelessWidget {
   const Dialogue({Key? key}) : super(key: key);
@@ -18,12 +17,7 @@ class Dialogue extends StatelessWidget {
           children: [
             GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const AgentLoginup(),
-                  ),
-                );
+                Get.toNamed("/auth/agent/signin");
               },
               child: Container(
                 height: 160,
@@ -57,12 +51,7 @@ class Dialogue extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const AdminLogin(),
-                  ),
-                );
+                Get.toNamed("/auth/admin/signin");
               },
               child: Container(
                 margin: const EdgeInsets.only(
