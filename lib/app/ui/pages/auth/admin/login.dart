@@ -91,6 +91,7 @@ class _AdminLoginState extends State<AdminLogin> {
                     SizedBox(
                       height: 55,
                       child: TextField(
+                        obscureText: true,
                         controller: passwordController,
                         decoration: InputDecoration(
                           border: InputBorder.none,
@@ -111,7 +112,7 @@ class _AdminLoginState extends State<AdminLogin> {
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(50),
                               ),
-                              primary: primaryColor,
+                              backgroundColor: primaryColor,
                             ),
                             onPressed: () async {
                               if (!authController.loading.value) {

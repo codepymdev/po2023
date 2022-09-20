@@ -15,7 +15,18 @@ class AgentSignup extends StatefulWidget {
 }
 
 class _AgentSignupState extends State<AgentSignup> {
+  TextEditingController fullnamecontroller = TextEditingController();
+  TextEditingController emailcontroller = TextEditingController();
+  TextEditingController phonenumcontroller = TextEditingController();
+  TextEditingController agentidcontroller = TextEditingController();
+  TextEditingController pollingunitcontroller = TextEditingController();
+  TextEditingController pollingunitidcontroller = TextEditingController();
+  TextEditingController passwordcontroller = TextEditingController();
+  TextEditingController confirmpasswordcontroller = TextEditingController();
   late int steps;
+
+  bool error = false;
+  String errormsg = "";
   @override
   void initState() {
     steps = 1;
@@ -63,7 +74,12 @@ class _AgentSignupState extends State<AgentSignup> {
                 child: Column(
                   children: [
                     steps == 1
-                        ? const StepOne()
+                        ? StepOne(
+                            fullnamecontroller: fullnamecontroller,
+                            emailcontroller: emailcontroller,
+                            phonenumcontroller: phonenumcontroller,
+                            agentidcontroller: agentidcontroller,
+                          )
                         : steps == 2
                             ? const StepTwo()
                             : steps == 3
@@ -77,9 +93,25 @@ class _AgentSignupState extends State<AgentSignup> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(50),
                           ),
-                          primary: primaryColor,
+                          backgroundColor: primaryColor,
                         ),
                         onPressed: () {
+                          if (error) {
+                            final snackBar = SnackBar(
+                              backgroundColor: Colors.red,
+                              content: Text(
+                                errormsg,
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                            );
+
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(snackBar);
+                          }
+                          if (!validate(steps)) return;
+
                           setState(() {
                             if (steps <= 4) {
                               steps += 1;
@@ -170,5 +202,40 @@ class _AgentSignupState extends State<AgentSignup> {
         ),
       ),
     );
+  }
+
+  bool validate(int step) {
+    error = false;
+    errormsg = "";
+    switch (step) {
+      case 1:
+        if (fullnamecontroller.text == "") {
+          error = true;
+          errormsg = "Full name is required";
+
+          return false;
+        }
+        if (emailcontroller.text == "") {
+          error = true;
+          errormsg = "Email address is required";
+
+          return false;
+        }
+        if (phonenumcontroller.text == "") {
+          error = true;
+          errormsg = "Phone number is required";
+
+          return false;
+        }
+        if (agentidcontroller.text == "") {
+          error = true;
+          errormsg = "Agent Id is required";
+
+          return false;
+        }
+        break;
+      default:
+    }
+    return true;
   }
 }
