@@ -6,28 +6,25 @@ import 'package:po2023/app/core/constants/api_constants.dart';
 class AuthRepository {
   static var client = http.Client();
 
-  static Future<Map<String, dynamic>> adminLogin(
-      String email, String password) async {
-    try {
-      var headers = {'Content-Type': 'application/json'};
-      var request =
-          http.Request('POST', Uri.parse('$endpoint/auth/login_admin'));
-      request.body = json.encode({
-        "email": email,
-        "password": password,
-      });
-      request.headers.addAll(headers);
+  static Future<Map<String, dynamic>> adminLogin(email, password) async {
+    var headers = {
+      'Content-Type': 'text/plain',
+    };
 
-      http.StreamedResponse response = await request.send();
+    var request = http.Request('POST', Uri.parse('$endpoint/auth/login_admin'));
+    request.body = json.encode({"email": email, "password": password});
+    request.headers.addAll(headers);
 
-      if (response.statusCode == 200) {
-        var data = await response.stream.bytesToString();
-        return json.decode(data);
-      } else {
-        return {"status": "failed", "message": "Authentication Failed"};
-      }
-    } catch (_) {
-      return {"status": "failed", "message": "Authentication Failed"};
+    http.StreamedResponse response = await request.send();
+
+    if (response.statusCode == 200) {
+      print(await response.stream.bytesToString());
+      //return {success and token}
+    } else {
+      print(response.reasonPhrase);
+      //return {"failed", and message}
     }
+
+    return {"status": "failed", "message": "bad"};
   }
 }

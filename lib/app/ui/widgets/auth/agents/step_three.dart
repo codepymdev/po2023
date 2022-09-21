@@ -27,7 +27,6 @@ class StepThree extends StatelessWidget {
         SizedBox(
           height: 55,
           child: TextField(
-            obscureText: true,
             decoration: InputDecoration(
               border: InputBorder.none,
               fillColor: HexColor("#F6F3F0"),
@@ -42,7 +41,6 @@ class StepThree extends StatelessWidget {
         SizedBox(
           height: 55,
           child: TextField(
-            obscureText: true,
             decoration: InputDecoration(
               border: InputBorder.none,
               fillColor: HexColor("#F6F3F0"),

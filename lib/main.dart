@@ -1,46 +1,38 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:get_storage/get_storage.dart';
-import 'package:po2023/app/core/functions/function.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:get/get.dart';
 import 'package:po2023/app/core/utils/app_initializer.dart';
+
 import 'package:po2023/app/ui/pages/app.dart';
 import 'package:po2023/app/ui/pages/errors/connectivity_error.dart';
 import 'package:po2023/app/ui/pages/errors/error.dart';
 import 'package:po2023/app/ui/pages/splash_screen.dart';
 
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:location/location.dart';
+import 'package:po2023/firebase_options.dart';
+
+Future<void> backgroundHandler(RemoteMessage message) async {
+  await Firebase.initializeApp();
+}
+
+final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+    FlutterLocalNotificationsPlugin();
 
 Future<void> main() async {
-  await GetStorage.init();
-  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  // WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
 
-  Location location = Location();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  await FirebaseMessaging.instance.getInitialMessage();
+  FirebaseMessaging.onBackgroundMessage(backgroundHandler);
 
-  bool serviceEnabled;
-  PermissionStatus permissionGranted;
-  LocationData locationData;
-
-  serviceEnabled = await location.serviceEnabled();
-  if (!serviceEnabled) {
-    serviceEnabled = await location.requestService();
-    if (!serviceEnabled) {
-      return;
-    }
-  }
-
-  permissionGranted = await location.hasPermission();
-  if (permissionGranted == PermissionStatus.denied) {
-    permissionGranted = await location.requestPermission();
-    if (permissionGranted != PermissionStatus.granted) {
-      return;
-    }
-  }
-
-  locationData = await location.getLocation();
-
-  saveLocation({"lat": locationData.latitude, "lng": locationData.longitude});
-
+  FlutterNativeSplash.preserve(
+      widgetsBinding: WidgetsFlutterBinding.ensureInitialized());
   runApp(
     FutureBuilder(
       future: AppInitializer().appInitializer(),

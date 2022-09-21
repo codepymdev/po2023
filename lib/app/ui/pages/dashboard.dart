@@ -3,6 +3,8 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:get/get.dart';
 import 'package:po2023/app/core/constants/app_constants.dart';
 import 'package:po2023/app/core/constants/asset_path.dart';
+import 'package:po2023/app/notification/helpernotification.dart';
+
 import 'package:po2023/app/ui/pages/auth/welcome_screen.dart';
 import 'package:po2023/app/ui/pages/dashboard/admin/agents.dart';
 import 'package:po2023/app/ui/pages/dashboard/menu.dart';
@@ -26,6 +28,16 @@ class _DashboardState extends State<Dashboard> {
   double edgePad = 10.0;
 
   final _textFormKey = GlobalKey<FormBuilderState>();
+
+  @override
+  void initState() {
+    super.initState();
+
+    ///notification reques, get device token and initiate info
+    HelperNotification().requestPermission();
+    HelperNotification().getToken();
+    HelperNotification().initInfo();
+  }
 
   // List of items in our dropdown menu
   @override

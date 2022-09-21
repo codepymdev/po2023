@@ -2,16 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 class StepOne extends StatelessWidget {
-  final TextEditingController fullnamecontroller;
-  final TextEditingController emailcontroller;
-  final TextEditingController phonenumcontroller;
-  final TextEditingController agentidcontroller;
   const StepOne({
     Key? key,
-    required this.fullnamecontroller,
-    required this.emailcontroller,
-    required this.phonenumcontroller,
-    required this.agentidcontroller,
   }) : super(key: key);
 
   @override
@@ -21,7 +13,6 @@ class StepOne extends StatelessWidget {
         SizedBox(
           height: 55,
           child: TextField(
-            controller: fullnamecontroller,
             decoration: InputDecoration(
               border: InputBorder.none,
               fillColor: HexColor("#F6F3F0"),
@@ -36,7 +27,6 @@ class StepOne extends StatelessWidget {
         SizedBox(
           height: 55,
           child: TextField(
-            controller: emailcontroller,
             decoration: InputDecoration(
               border: InputBorder.none,
               fillColor: HexColor("#F6F3F0"),
@@ -51,7 +41,6 @@ class StepOne extends StatelessWidget {
         SizedBox(
           height: 55,
           child: TextField(
-            controller: phonenumcontroller,
             decoration: InputDecoration(
               border: InputBorder.none,
               fillColor: HexColor("#F6F3F0"),
@@ -66,7 +55,6 @@ class StepOne extends StatelessWidget {
         SizedBox(
           height: 55,
           child: TextField(
-            controller: agentidcontroller,
             decoration: InputDecoration(
               border: InputBorder.none,
               fillColor: HexColor("#F6F3F0"),
